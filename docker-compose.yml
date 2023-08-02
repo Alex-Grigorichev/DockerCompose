@@ -4,6 +4,7 @@ services:
   db: 
     container_name: postgres-db
     image: postgres:15-alpine3.18
+    restart: always
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_USER=admin
@@ -28,6 +29,7 @@ services:
   rabbitmq:
     container_name: rabbit
     image: rabbitmq:3.9.14-management
+    restart: always
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest

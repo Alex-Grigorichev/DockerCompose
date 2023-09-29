@@ -38,3 +38,16 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+
+  minio:
+    container_name: minio
+    image: quay.io/minio/minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=P@ssw0rd
+    volumes:
+      - './data:/data'
+    ports:
+      - '9090:9090'
+      - '9000:9000'
+    command: 'server /data --console-address ":9090"'
